@@ -27,8 +27,11 @@ module.exports = function (React) {
       this.attachScrollListener();
     },
     render: function () {
-      var props = this.props;
-      return React.DOM.div(null, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
+      var props = this.props,
+          id = props.id || 'infinite_scroll',
+          className = props.className || 'infinite-scroll';
+
+      return React.DOM.div({id: id, className: className}, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
     },
     scrollListener: function () {
       var el = this.getDOMNode();
