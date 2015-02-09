@@ -63,6 +63,9 @@ In this case, it will depend on `react`.
                 window's viewport that triggers the loading of new stuff -
                 *Defaults to `250`*
 
+- `elType` : String name of DOM element to be used as infinite scroll root element, e.g. `'ul'`.
+             Default is `'div'`
+
 
 ## Changelog
 

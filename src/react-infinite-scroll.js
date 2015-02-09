@@ -28,10 +28,13 @@ module.exports = function (React) {
     },
     render: function () {
       var props = this.props,
-          id = props.id || 'infinite_scroll',
-          className = props.className || 'infinite-scroll';
+        elType = '',
+        id = props.id || 'infinite_scroll',
+        className = props.className || 'infinite-scroll';
 
-      return React.DOM.div({id: id, className: className}, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
+      elType = (props.elType && typeof React.DOM[props.elType] === 'function') ? props.elType : 'div';
+
+      return React.DOM[elType]({id: id, className: className}, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
     },
     scrollListener: function () {
       var el = this.getDOMNode();
